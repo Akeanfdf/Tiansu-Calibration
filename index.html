@@ -33,11 +33,11 @@
     </div>
     <div class="item">
       <div class="item-left">仪器名称</div>
-      <div class="item-right">钢卷尺</div>
+      <div class="item-right" id="instrument-name">钢卷尺</div>
     </div>
     <div class="item">
       <div class="item-left">规格型号</div>
-      <div class="item-right">5m</div>
+      <div class="item-right" id="instrument-model">5m</div>
     </div>
     <div class="item">
       <div class="item-left">出厂编号</div>
@@ -62,8 +62,7 @@
   </div>
 </div>
 <script>
-  // 获取 URL 参数
-  function getQueryParam(param) {
+function getQueryParam(param) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(param);
   }
@@ -71,13 +70,23 @@
   // 动态赋值
   const certificateNumber = getQueryParam('certificate');
   const publishDate = getQueryParam('date');
+  const instrument = getQueryParam('instrument');
+  const model = getQueryParam('model');
 
-  if(certificateNumber) {
+  if (certificateNumber) {
     document.getElementById('certificate-number').textContent = certificateNumber;
   }
 
-  if(publishDate) {
+  if (publishDate) {
     document.getElementById('publish-date').textContent = publishDate;
+  }
+
+  if (instrument) {
+    document.getElementById('instrument-name').textContent = instrument;
+  }
+
+  if (model) {
+    document.getElementById('instrument-model').textContent = model;
   }
 </script>
 </body>
@@ -280,5 +289,6 @@
 </style>
 
 </html>
+
 
 
