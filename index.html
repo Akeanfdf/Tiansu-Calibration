@@ -41,11 +41,11 @@
     </div>
     <div class="item">
       <div class="item-left">出厂编号</div>
-      <div class="item-right">/</div>
+      <div class="item-right" id="factory-number">/</div>
     </div>
     <div class="item">
       <div class="item-left">管理编号</div>
-      <div class="item-right">GJC-002</div>
+      <div class="item-right" id="manage-number">GJC-002</div>
     </div>
 
     <div class="item">
@@ -62,7 +62,7 @@
   </div>
 </div>
 <script>
-function getQueryParam(param) {
+ function getQueryParam(param) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(param);
   }
@@ -72,6 +72,8 @@ function getQueryParam(param) {
   const publishDate = getQueryParam('date');
   const instrument = getQueryParam('instrument');
   const model = getQueryParam('model');
+  const factoryNumber = getQueryParam('factory');
+  const manageNumber = getQueryParam('manage');
 
   if (certificateNumber) {
     document.getElementById('certificate-number').textContent = certificateNumber;
@@ -87,6 +89,14 @@ function getQueryParam(param) {
 
   if (model) {
     document.getElementById('instrument-model').textContent = model;
+  }
+
+  if (factoryNumber) {
+    document.getElementById('factory-number').textContent = factoryNumber;
+  }
+
+  if (manageNumber) {
+    document.getElementById('manage-number').textContent = manageNumber;
   }
 </script>
 </body>
@@ -289,6 +299,7 @@ function getQueryParam(param) {
 </style>
 
 </html>
+
 
 
 
